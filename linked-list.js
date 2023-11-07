@@ -20,101 +20,143 @@ class linked_list
 			: null;
 	}
 
-	insert_node = (value, index) =>
+	__display_linked_list = (from = 0, to = -1) =>
 	{
-		const new_node_ = new node(value);
+		const node_value_arr_ = [];
+		let current_index_ = 0;
+		let current_node_ = this.__head;
 
-		if(
-			!(
-				new_node_ && 
-				new_node_.__value
-			)
-		)
+		while(current_node_)
 		{
-			console.log(`Could not insert node of value - ${value} at index - ${index}`);
-			return this.__head;
+			if(current_index_ >= from)
+				node_value_arr_.push(current_node_.__value);
+
+			current_node_ = current_node_.__next;
+			++current_index_;
+
+			if(
+				to >= 0 && 
+				current_index_ >= to
+			)
+				break;
 		}
 
-		const current_node_ = this.get_node_at_index(index);
+		console.log(` LINKED LIST `);
+		console.log(`=============`);
 
-		if(!current_node_)
+		if(node_value_arr_.length <= 0)
+			console.log(`Empty Linked list`);
+
+		console.log(node_value_arr_.join(` -> `));
+
+	}
+
+	__get_node_at_index = (index = 0) =>
+	{
+		// current node <- head
+		let current_node_ = this.__head;
+
+		// if not current node || index < 0
+		if(
+			!current_node_ || 
+			index < 0
+		)
+			// return null
+			return null;
+
+		// index_ = 0
+		let index_ = 0;
+
+		let prev_node_;
+		
+		// while current node
+		while (current_node_)
 		{
+			prev_node_ = current_node_;
+
+			// current_node = current_node.next
+			current_node_ = current_node_.__next;
+
+			// if index_++ === index
+			if (++index_ === index)
+				// return current node
+				return current_node_;
+		}
+		
+		// if (index > index_)
+		if (index > index_)
+		{
+			console.log(`linked_list::get_node_at_index => Index out of bounds`);
+			return prev_node_;
+		}
+
+		// return null
+		return null;
+
+	}
+
+	__add_node_at_index = (value, index = 0) =>
+	{
+		// instantiate new node
+		const new_node_ = new node(value);
+
+		if (index === 0)
+		{
+			if (this.__head)
+				new_node_.__next = this.__head;
+
 			this.__head = new_node_;
 			return this.__head;
 		}
 
-		new_node_.__next = current_node_.__next
+		// current node <- get node at index-1
+		let current_node_ = this.__get_node_at_index(index-1);
+
+		// if not current node
+		if(!current_node_)
+			// return null
+			return null;
+		
+		new_node_.__next = current_node_.__next;
 		current_node_.__next = new_node_;
 
+		// return head
 		return this.__head;
-	}
-
-	get_node_at_index = (index) => 
-	{
-		let index_ = -1;
-
-		let current_node_ = this.__head;
-
-		while(current_node_)
-		{			
-			++index_;
-
-			if(
-				!current_node_.__next || 	// returns last element if index out of bounds
-				index === index_
-			)
-				break;
-
-			current_node_ = current_node_.__next;
-		}
-
-		return current_node_;
-	}
-
-	display_list = (from = -1, to = -1) =>
-	{
-		let current_node_ = this.__head;
-		let index_ = from;
-
-		const value_arr_ = [];
-
-		while(
-			!(to >= 0 && index_ > to) && 
-			current_node_ && 
-			current_node_.__value
-		)
-		{
-			++index_;
-			value_arr_.push(current_node_.__value);
-			
-			if(
-				!current_node_.__next || 
-				index_ === to
-			)
-				break;
-
-			current_node_ = current_node_.__next;
-		}
-
-		console.log("");
-		console.log("LINKED LIST");
-		console.log("=====");
-		console.log(value_arr_.join(' -> '));
 
 	}
 
 }
 
-// ============
+// =======
 
 const LL = new linked_list();
 
-LL.display_list();
-LL.insert_node("5", 10);
-LL.display_list();
+LL.__display_linked_list();
 
-LL.insert_node("7", 10);
-LL.display_list();
+LL.__add_node_at_index(5, 5);
+LL.__display_linked_list();
 
-LL.insert_node("9", 10);
-LL.display_list();
+LL.__add_node_at_index(5);
+LL.__display_linked_list();
+
+LL.__add_node_at_index(4);
+LL.__display_linked_list();
+
+LL.__add_node_at_index(3);
+LL.__display_linked_list();
+
+LL.__add_node_at_index(10,10);
+LL.__display_linked_list();
+
+LL.__add_node_at_index(20,20);
+LL.__display_linked_list();
+
+console.log(`node at index 4 => ${LL.__get_node_at_index(4).__value}`);
+
+LL.__add_node_at_index(12,4);
+LL.__display_linked_list();
+
+LL.__add_node_at_index(9,3);
+LL.__display_linked_list();
+
+console.log(`node at index 2 => ${LL.__get_node_at_index(2).__value}`);
