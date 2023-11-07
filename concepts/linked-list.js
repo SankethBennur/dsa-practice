@@ -41,6 +41,7 @@ class linked_list
 				break;
 		}
 
+		console.log();
 		console.log(` LINKED LIST `);
 		console.log(`=============`);
 
@@ -48,6 +49,7 @@ class linked_list
 			console.log(`Empty Linked list`);
 
 		console.log(node_value_arr_.join(` -> `));
+		console.log();
 
 	}
 
@@ -127,36 +129,4 @@ class linked_list
 
 }
 
-// =======
-
-const LL = new linked_list();
-
-LL.__display_linked_list();
-
-LL.__add_node_at_index(5, 5);
-LL.__display_linked_list();
-
-LL.__add_node_at_index(5);
-LL.__display_linked_list();
-
-LL.__add_node_at_index(4);
-LL.__display_linked_list();
-
-LL.__add_node_at_index(3);
-LL.__display_linked_list();
-
-LL.__add_node_at_index(10,10);
-LL.__display_linked_list();
-
-LL.__add_node_at_index(20,20);
-LL.__display_linked_list();
-
-console.log(`node at index 4 => ${LL.__get_node_at_index(4).__value}`);
-
-LL.__add_node_at_index(12,4);
-LL.__display_linked_list();
-
-LL.__add_node_at_index(9,3);
-LL.__display_linked_list();
-
-console.log(`node at index 2 => ${LL.__get_node_at_index(2).__value}`);
+module.exports = { linked_list };
