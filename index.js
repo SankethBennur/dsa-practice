@@ -29,3 +29,25 @@ IF_linked_list.add_node_at_index(9,3);
 IF_linked_list.display_linked_list();
 
 console.log(`node at index 2 => ${IF_linked_list.get_node_at_index(2).__value}`);
+
+// IF_linked_list.create_new_linked_list({__value: 5});
+IF_linked_list.create_new_linked_list();
+
+IF_linked_list.add_node_at_index(20);
+IF_linked_list.display_linked_list();
+
+console.log(`node at index 4 => ${IF_linked_list.get_node_at_index(4)}`);
+
+IF_linked_list.add_node_at_index(12,4);
+IF_linked_list.display_linked_list();
+
+IF_linked_list.add_node_at_index(9);
+IF_linked_list.display_linked_list();
+
+IF_linked_list.add_node_at_index(9,3);
+IF_linked_list.display_linked_list();
+
+IF_linked_list.add_node_at_index(19,3);
+IF_linked_list.display_linked_list();
+
+console.log(`node at index 2 => ${IF_linked_list.get_node_at_index(2)}`);
