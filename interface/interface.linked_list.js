@@ -9,6 +9,7 @@ const interface_linked_list = {
 	display_linked_list: (from, to) => { return LL.__display_linked_list(from, to); },
 	delete_node_at_index: (index) => { return LL.__delete_node_at_index(index); },
 	find_middle_node: () => { return LL.__find_middle_node(); },
+	check_cycle: () => { return LL.__check_cycle(); },
 };
 
 module.exports = interface_linked_list;

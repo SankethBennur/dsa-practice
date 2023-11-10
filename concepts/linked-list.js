@@ -248,6 +248,40 @@ class linked_list
 		return tortoise_node_;
 
 	}
+	
+	__check_cycle = () =>
+	{
+		/*
+			return: <node> / null if not found
+		*/
+
+		// rabbit and tortoise
+
+		// rabbit moves twice as fast as tortoise
+
+		// return tortoise node when rabbit is null or rabbit.__next is null
+
+		if(!this.__head)
+			return null;
+
+		if(!this.__head.__next)
+			return this.__head;
+
+		let rabbit_node_ = this.__head;
+		let tortoise_node_ = this.__head;
+
+		while(rabbit_node_ && rabbit_node_.__next)
+		{
+			tortoise_node_ = tortoise_node_.__next
+			rabbit_node_ = rabbit_node_.__next.__next;
+
+			if(tortoise_node_ === rabbit_node_)
+				return true;
+		}
+
+		return false;
+
+	}
 
 }
 

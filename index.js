@@ -104,3 +104,11 @@ if(mid_ele_001)
 else
 	console.log(`Middle element: ${null}`);
 IF_linked_list.display_linked_list();
+
+console.log(`Cycle in Linked List exists: ${IF_linked_list.check_cycle()}`);
+
+const ele_003_ = IF_linked_list.get_node_at_index(3);
+const ele_last_ = IF_linked_list.get_node_at_index(5);
+
+ele_last_.__next = ele_003_;
+console.log(`Cycle in Linked List exists: ${IF_linked_list.check_cycle()}`);
