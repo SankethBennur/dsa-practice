@@ -24,7 +24,7 @@ class linked_list
 		this.__head = (
 				head &&
 				head.constructor &&
-				head.constructor.name
+				head.constructor.name === "node"
 			)
 			? head
 			: null;
@@ -152,6 +152,100 @@ class linked_list
 		console.log(node_value_arr_.join(` -> `));
 		console.log(`============`);
 		console.log(``);
+
+	}
+
+	__delete_node_at_index = (index = -1) =>
+	{
+		/*
+			params: index to delete at,
+			return: <node> / null if not found
+		*/
+		if (index < 0 )
+		{
+			console.log(`linked_list::__delete_node_at_index(${index}) => index less that zero.`);
+			return null;
+		}
+
+		let current_node_ = this.__head;
+		let deleted_node_ = null;
+		let current_index_ = -1;
+
+		if (index === 0)
+		{
+			this.__head = current_node_.__next;
+			deleted_node_ = current_node_;
+			// delete(current_node_);
+
+			return deleted_node_;
+		}
+
+		// iterate
+		while (current_node_)		// do not preserve last node
+		{
+			++current_index_;
+			
+			if (current_index_ === index - 1)		// getting previous node
+				break;
+
+			if (current_node_.__next)
+				current_node_ = current_node_.__next;
+			else
+				break;		// breaks at last node
+
+		}
+
+		if (current_index_ < 0)
+		{
+			console.log(`linked_list::__delete_node_at_index(${index}) => Could not find head`);
+			return null;
+		}
+
+		if (!current_node_.__next && index > current_index_)
+		{
+			console.log(`linked_list::__delete_node_at_index(${index}) => index out of bounds`);
+			return null;
+		}
+
+		deleted_node_ = current_node_.__next;
+		current_node_.__next = (deleted_node_)
+			? deleted_node_.__next		// may be null or next element
+			: null;
+
+		// delete(current_node_);
+
+		return(deleted_node_);
+
+	}
+	
+	__find_middle_node = () =>
+	{
+		/*
+			return: <node> / null if not found
+		*/
+
+		// rabbit and tortoise
+
+		// rabbit moves twice as fast as tortoise
+
+		// return tortoise node when rabbit is null or rabbit.__next is null
+
+		if(!this.__head)
+			return null;
+
+		if(!this.__head.__next)
+			return this.__head;
+
+		let rabbit_node_ = this.__head;
+		let tortoise_node_ = this.__head;
+
+		while(rabbit_node_ && rabbit_node_.__next)
+		{
+			tortoise_node_ = tortoise_node_.__next
+			rabbit_node_ = rabbit_node_.__next.__next;
+		}
+
+		return tortoise_node_;
 
 	}
 

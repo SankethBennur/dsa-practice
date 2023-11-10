@@ -33,27 +33,74 @@ IF_linked_list.display_linked_list();
 
 if (IF_linked_list.get_node_at_index(2))
 	console.log(`node at index 2 => ${IF_linked_list.get_node_at_index(2).__value}`);
+else
+	console.log(`node at index 2 => ${null}`);
 
+if (IF_linked_list.get_node_at_index(5))
+	console.log(`node at index 5 => ${IF_linked_list.get_node_at_index(5).__value}`);
+else
+	console.log(`node at index 5 => ${null}`);
+
+// console.log(`Creating new linked list`)
 // IF_linked_list.create_new_linked_list({__value: 5});
-IF_linked_list.create_new_linked_list();
+// // IF_linked_list.create_new_linked_list();
 
-IF_linked_list.add_node_at_index(20);
+// IF_linked_list.add_node_at_index(20);
+// IF_linked_list.display_linked_list();
+
+// if (IF_linked_list.get_node_at_index(4))
+// 	console.log(`node at index 4 => ${IF_linked_list.get_node_at_index(4)}`);
+// else
+// 	console.log(`node at index 4 => ${null}`);
+
+// IF_linked_list.add_node_at_index(12,4);
+// IF_linked_list.display_linked_list();
+
+// IF_linked_list.add_node_at_index(9);
+// IF_linked_list.display_linked_list();
+
+// IF_linked_list.add_node_at_index(8,2);
+// IF_linked_list.display_linked_list();
+
+// IF_linked_list.add_node_at_index(19,3);
+// IF_linked_list.display_linked_list();
+
+// if(IF_linked_list.get_node_at_index(2))
+// 	console.log(`node at index 2 => ${IF_linked_list.get_node_at_index(2).__value}`);
+// else
+// 	console.log(`node at index 2 => ${null}`);
+
+console.log(``);
+const del_5 = IF_linked_list.delete_node_at_index(5);
+console.log(`Deleting element at index 5: ${(del_5)
+	? del_5.__value
+	: null}`);
 IF_linked_list.display_linked_list();
 
-if (IF_linked_list.get_node_at_index(4))
-	console.log(`node at index 4 => ${IF_linked_list.get_node_at_index(4)}`);
-
-IF_linked_list.add_node_at_index(12,4);
+console.log(``);
+const del_n2 = IF_linked_list.delete_node_at_index(-2)
+console.log(`Deleting element at index -2: ${(del_n2)
+	? del_n2.__value
+	: null}`);
 IF_linked_list.display_linked_list();
 
-IF_linked_list.add_node_at_index(9);
+console.log(``);
+const del_19 = IF_linked_list.delete_node_at_index(19)
+console.log(`Deleting element at index 19: ${(del_19)
+	? del_19.__value
+	: null}`);
 IF_linked_list.display_linked_list();
 
-IF_linked_list.add_node_at_index(8,2);
+console.log(``);
+const del_3 = IF_linked_list.delete_node_at_index(3)
+console.log(`Deleting element at index 3: ${(del_3)
+	? del_3.__value
+	: null}`);
 IF_linked_list.display_linked_list();
 
-IF_linked_list.add_node_at_index(19,3);
+const mid_ele_001 = IF_linked_list.find_middle_node();
+if(mid_ele_001)
+	console.log(`Middle element: ${mid_ele_001.__value}`);
+else
+	console.log(`Middle element: ${null}`);
 IF_linked_list.display_linked_list();
-
-if(IF_linked_list.get_node_at_index(2))
-	console.log(`node at index 2 => ${IF_linked_list.get_node_at_index(2).__value}`);
