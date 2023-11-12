@@ -1,11 +1,5 @@
 /*
-	Write a linked list class to perform the following
-	1. Insert node at index
-		b. if index < 0 or out of bounds, insert last
-		c. return head
-	2. Get node at index
-		a. return node or null
-	3. Display all nodes of linked list
+	LINKED LIST
 */
 
 class node
