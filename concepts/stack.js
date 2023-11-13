@@ -48,20 +48,11 @@ class stack_linked_list
 
 		const new_node_ = new node(value);
 
-		// if null stack head
-		if (!this.__stack_head)
-			// stack head <- new node
-			this.__stack_head = new_node_;
-
-		// else
-		else
-		{
-			// new node.next <- stack_head
-			new_node_.__next = this.__stack_head;
-			// stack_head <- new_node
-			this.__stack_head = new_node_;
-		}
-		
+		// new node.next <- stack_head
+		new_node_.__next = this.__stack_head;
+		// stack_head <- new_node
+		this.__stack_head = new_node_;
+	
 		// increment size
 		++this.__size;
 		// return stack_head
